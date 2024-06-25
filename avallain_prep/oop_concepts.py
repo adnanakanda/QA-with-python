@@ -31,7 +31,7 @@ print("\nAccessing class variable using class name")
 print(Dog.animal)
 
 
-# working with the inhritence
+#TODO: working with the inhritence
 # A Python program to demonstrate inheritance
 
 # Base or Super class. Note object in bracket.
@@ -68,7 +68,7 @@ print(emp.getName(), emp.isEmployee())
 
 
 
-# Multilevel Inheritence
+# TODO:Multilevel Inheritence
 # A Python program to demonstrate inheritance
 
 # Base or Super class. Note object in bracket.
@@ -118,7 +118,8 @@ class GrandChild(Child):
 g = GrandChild("Geek1", 23, "Noida")
 print(g.getName(), g.getAge(), g.getAddress())
 
-# Encapsulation in Python
+
+# TODO: Encapsulation in Python
 
 # Python program to
 # demonstrate protected members
@@ -159,10 +160,8 @@ print("Accessing protected member of obj2: ", obj2._a)
 
 
 
-# Python program to
+# TODO: Python program to
 # demonstrate private members
-
-# Creating a Base class
 
 
 class Base:
@@ -192,3 +191,55 @@ print(obj1.a)
 # also raise an AttributeError as
 # private member of base class
 # is called inside derived class
+
+
+# TODO: polymorphism in Python using inheritance and method overriding:
+
+class Animal:
+    def speak(self):
+        raise NotImplementedError("Subclass must implement this method")
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+
+# Create a list of Animal objects
+animals = [Dog(), Cat()]
+
+# Call the speak method on each object
+for animal in animals:
+    print(animal.speak()) # output: Woof! - Meow!
+
+
+# TODO: Class method an Static method implementation
+# Python program to demonstrate
+# use of class method and static method.
+from datetime import date
+
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # a class method to create a Person object by birth year.
+    @classmethod
+    def fromBirthYear(cls, name, year):
+        return cls(name, date.today().year - year)
+
+    # a static method to check if a Person is adult or not.
+    @staticmethod
+    def isAdult(age):
+        return age > 18
+
+
+person1 = Person('mayank', 21)
+person2 = Person.fromBirthYear('mayank', 1996)
+
+print(person1.age)  #output : 21
+print(person2.age)  #output : 25
+print(Person.isAdult(22))  #output : True
